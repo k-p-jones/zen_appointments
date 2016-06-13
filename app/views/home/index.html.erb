@@ -5,6 +5,13 @@
 		<%= link_to ">", start_date: @start_date.next_month %>
 	</div>
 </div>
-<div id="my_calender">
-	<%= calender(@start_date, @events_by_date) %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div id="my_calender">
+			<%= calender(@start_date, @events_by_date) %>
+		</div>
+	</div>
 </div>
+
+<%= render 'event_form' %>

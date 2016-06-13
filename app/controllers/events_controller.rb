@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 		if @event.save
 			flash[:success] = "Event created"
 		else
-			flash[:error] = "Uh Oh, try again!"
+			flash[:danger] = "Uh Oh, try again!"
 		end
 		redirect_to root_path
 	end
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 			flash[:success] = 'Event was updated!'
 			redirect_to root_path
 		else
-			flash[:error] = "There was a problem"
+			flash[:danger] = "There was a problem"
 			redirect_to root_path
 		end
 	end
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 		if @event.destroy
 			flash[:success] = 'Event Was Destroyed'
 		else
-			flash[:error] = 'Error Destroying Event...'
+			flash[:danger] = 'Error Destroying Event...'
 		end
 		redirect_to root_path
 	end

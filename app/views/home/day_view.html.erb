@@ -1,0 +1,31 @@
+<% if @todays_events.blank? %>
+	<h2>There are no events today!</h2>
+<% else %>
+	<h3>Todays Events</h3>
+<% end %>
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="my_day">
+			<% hours = ("00".."23") %>
+			<table class="table" id="day_table">
+				<% for hour in hours %>
+					<tr>
+						<th><%= hour %></th>
+						<td>
+							<div class="event_placeholder">
+								<% @todays_events.each do |event| %>
+									<% if event.format_time == hour %>
+										<div class="event_filler" data-duration="<%= event.duration_in_minutes %>" data-id="event_<%= event.id %>" id="event_<%= event.id %>" data-startpos="<%= event.start_time.strftime('%M') %>">
+											<p><%= event.description %></p>
+										</div>
+									<% end %>
+								<% end %>
+							</div>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

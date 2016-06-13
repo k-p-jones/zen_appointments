@@ -1,0 +1,32 @@
+/* DAY PLANNER */
+
+.my_day {
+	table {
+		td {
+			height: 60px;
+		}
+		th {
+			width: 20px;
+		}
+	}
+}
+
+/* EVENT FILLER*/
+
+.event_placeholder {
+	position: relative;
+}
+
+.event_filler {
+	z-index: 9999;
+	width: 100%;
+	background-color: blue;
+	opacity: 0.5;
+	padding: 0px;
+	position: absolute;
+	top: -8px;
+	left: 0;
+	p {
+		padding: 0;
+	}
+}
