@@ -1,6 +1,11 @@
 class Event < ActiveRecord::Base
 	validates :description, :start_time, :end_time, presence: true
 	
+	
+
+	def event_doesnt_clash
+		
+	end
 
 	def duration
 		(self.end_time - self.start_time) / 3600

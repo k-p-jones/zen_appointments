@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 	def index
+		@event = Event.new
 		@start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today
 	  	@events = Event.all
-	  	@event = Event.new
   		@events_by_date = @events.group_by(&:date)
 	end
 

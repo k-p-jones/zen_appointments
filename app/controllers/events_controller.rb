@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 			flash[:success] = "Event created"
 		else
 			flash[:danger] = "Uh Oh, try again!"
+			session[:errors] = @event.errors.full_messages
 		end
 		redirect_to root_path
 	end
