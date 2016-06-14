@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 	end
 
 	def day_view
+		@event = Event.new
 		@date = Date.parse(params[:date])
     	@the_date = @date.to_datetime
   		@events = Event.all

@@ -11,10 +11,7 @@
       <% session[:errors] = nil %>
     <% end %>
 
-    <div class="form-group">
-      <%= f.label :date %>
-      <%= f.date_select :date %>
-    </div>
+    <%= f.hidden_field(:date, :value => Date.parse(params[:date])) %>
     <div class="form-group">
       <%= f.label :description %><br>
       <%= f.text_area :description, class: "form-control" %>
