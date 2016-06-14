@@ -1,10 +1,14 @@
 class Event < ActiveRecord::Base
 	validates :description, :start_time, :end_time, presence: true
 	
-	
+	validate :event_doesnt_clash
 
 	def event_doesnt_clash
-		
+		events = Event.all.select { |e| (e.id != id) && (e.date = date) }
+		overlaps = events.select { |e| (start_time.strftime("%H%M").to_i - e.end_time.strftime("%H%M").to_i) * (end_time.strftime("%H%M").to_i - e.start_time.strftime("%H%M").to_i) < 0 }
+		unless overlaps.blank?
+			errors.add(:event, "clashes with other events today")
+		end
 	end
 
 	def duration
