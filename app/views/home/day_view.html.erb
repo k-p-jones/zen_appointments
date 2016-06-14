@@ -6,28 +6,14 @@
 			<h3><%= format_date(@date) %></h3>
 		</div>
 		<div class="my_day">
-			<% hours = ("00".."23") %>
-			<table class="table" id="day_table">
-				<% for hour in hours %>
-					<tr>
-						<th><%= hour %></th>
-						<td>
-							<div class="event_placeholder">
-								<% @todays_events.each do |event| %>
-									<% if event.format_time == hour %>
-										<div class="event_filler" data-duration="<%= event.duration_in_minutes %>" data-id="event_<%= event.id %>" id="event_<%= event.id %>" data-startpos="<%= event.start_time.strftime('%M') %>">
-											<p><%= event.description %></p>
-										</div>
-									<% end %>
-								<% end %>
-							</div>
-						</td>
-					</tr>
-				<% end %>
-			</table>
+			<%= day_planner(@todays_events) %>
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<%= render 'event_form' %>
 	</div>
+</div>
+
+<div class="my_day">
+	
 </div>

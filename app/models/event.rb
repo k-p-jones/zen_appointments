@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 		events = Event.all.select { |e| (e.id != id) && (e.date == date) }
 		overlaps = events.select { |e| (start_time.strftime("%H%M").to_i - e.end_time.strftime("%H%M").to_i) * (end_time.strftime("%H%M").to_i - e.start_time.strftime("%H%M").to_i) < 0 }
 		unless overlaps.blank?
-			errors.add(:event, "clashes with other events today #{overlaps}")
+			errors.add(:event, "clashes with other events today!")
 		end
 	end
 
@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
 		(self.end_time - self.start_time) / 60
 	end
 
-	def format_time
+	def format_start_time
 		self.start_time.strftime("%H")
 	end
 end

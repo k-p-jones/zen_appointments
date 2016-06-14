@@ -10,7 +10,7 @@ $(document).ready(function() {
 			return $(this).data("duration");
 		});
 		$("#" + x).css("top", function() {
-			var x = $(this).data("startpos") - 8;
+			var x = $(this).data("startpos");
 			return x
 		});
 	});
