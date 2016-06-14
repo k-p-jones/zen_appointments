@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+	$('.clockpicker').clockpicker({
+		donetext: 'Done'
+	});
+
 	var width = $(".my_day, td").width();
 
 	

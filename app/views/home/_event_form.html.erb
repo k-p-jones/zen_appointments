@@ -10,20 +10,35 @@
       </p>
       <% session[:errors] = nil %>
     <% end %>
-
+    
+    <!-- Date in hidden field -->
     <%= f.hidden_field(:date, :value => Date.parse(params[:date])) %>
+    <!-- description -->
     <div class="form-group">
       <%= f.label :description %><br>
       <%= f.text_area :description, class: "form-control" %>
     </div>
+    <!-- start time using clock picker -->
     <div class="form-group">
       <%= f.label :start_time %><br>
-      <%= f.time_select :start_time %>
+      <div class="input-group clockpicker">
+        <%= f.text_field :start_time, :class => "form-control", :value =>"09:00" %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+      </div>
     </div>
+    <!-- end time using clock picker -->
     <div class="form-group">
       <%= f.label :end_time %><br>
-      <%= f.time_select :end_time %>
+      <div class="input-group clockpicker">
+        <%= f.text_field :end_time, :class => "form-control", :value =>"10:00" %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+      </div>
     </div>
+    <!-- submit -->
     <div class="actions">
       <%= f.submit :class => "btn btn-success" %>
     </div>

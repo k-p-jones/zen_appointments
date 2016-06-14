@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require bootstrap
+//= require clockpicker
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
