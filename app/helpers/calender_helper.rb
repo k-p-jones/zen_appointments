@@ -45,7 +45,7 @@ module CalenderHelper
 
 		def class_check(day)
 			classes = ["text-center"]
-			classes << "success" if events[day]
+			classes << "active_cell" if events[day]
 			classes << "active" if day.month != date.month
 			classes.empty? ? nil : classes.join(" ")
 		end
