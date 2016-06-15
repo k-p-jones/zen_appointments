@@ -4,10 +4,6 @@ $(document).ready(function() {
 		donetext: 'Done'
 	});
 
-	var width = $(".my_day, td").width();
-
-	
-
 	$.each($(".event_filler"), function() {
 		var x = $(this).data("id");
 		$("#" + x).css("height", function() {
