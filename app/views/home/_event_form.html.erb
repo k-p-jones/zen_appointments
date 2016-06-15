@@ -18,6 +18,10 @@
       <%= f.label :description %><br>
       <%= f.text_area :description, class: "form-control" %>
     </div>
+    <!-- Colour select -->
+    <div class="form-group">
+      <%= f.select(:colour, [['Green', '#DFF0D8'], ['Red', '#F2DEDE'], ['Yellow', '#fcf5a9']], {}, {:class => "form-control"}) %>
+    </div>
     <!-- start time using clock picker -->
     <div class="form-group">
       <%= f.label :start_time %><br>

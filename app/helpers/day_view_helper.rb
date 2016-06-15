@@ -23,7 +23,7 @@ module DayViewHelper
 			else
 				content_tag :td, class: "event_placeholder" do 
 					arr.map do |e|
-						content_tag :div, class: "event_filler", data: { id: "event_#{e.id}", duration: "#{e.duration_in_minutes}", startpos: "#{e.start_time.strftime('%M')}" }, id: "event_#{e.id}" do 
+						content_tag :div, class: "event_filler", data: { id: "event_#{e.id}", duration: "#{e.duration_in_minutes}", startpos: "#{e.start_time.strftime('%M')}", colour: "#{e.colour}" }, id: "event_#{e.id}" do 
 							content_tag :p, e.description
 						end
 					end.join.html_safe

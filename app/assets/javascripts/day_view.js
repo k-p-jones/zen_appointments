@@ -5,12 +5,19 @@ $(document).ready(function() {
 	});
 
 	$.each($(".event_filler"), function() {
-		var x = $(this).data("id");
-		$("#" + x).css("height", function() {
+		var id = $(this).data("id");
+		// set height
+		$("#" + id).css("height", function() {
 			return $(this).data("duration");
 		});
-		$("#" + x).css("top", function() {
+		// set position
+		$("#" + id).css("top", function() {
 			var x = $(this).data("startpos");
+			return x
+		});
+		// set colour
+		$("#" + id).css("background-color", function() {
+			var x = $(this).data("colour");
 			return x
 		});
 	});
