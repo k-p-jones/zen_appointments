@@ -3,8 +3,10 @@ class Event < ActiveRecord::Base
 	validate :start_time_less_than_end_time
 	validate :event_doesnt_clash
 
+	belongs_to :user
+
 	def event_doesnt_clash
-		events = Event.all.select { |e| (e.id != id) && (e.date == date) }
+		events = Event.all.select { |e| (e.id != id) && (e.date == date) && (e.user_id == user_id) }
 		overlaps = events.select { |e| (start_time.strftime("%H%M").to_i - e.end_time.strftime("%H%M").to_i) * (end_time.strftime("%H%M").to_i - e.start_time.strftime("%H%M").to_i) < 0 }
 		unless overlaps.blank?
 			errors.add(:event, "clashes with other events today!")

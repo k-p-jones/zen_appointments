@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
+
+	before_action :authenticate_user!
+
 	def index
-		@event = Event.new
 		@start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today
-	  	@events = Event.all
+	  	@events = current_user.events
   		@events_by_date = @events.group_by(&:date)
 	end
 
@@ -10,7 +12,7 @@ class HomeController < ApplicationController
 		@event = Event.new
 		@date = Date.parse(params[:date])
     	@the_date = @date.to_datetime
-  		@events = Event.all
+  		@events = current_user.events
   		@todays_events = @events.where("date = ?", @date)
 	end
 end
