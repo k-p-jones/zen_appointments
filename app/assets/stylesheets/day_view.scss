@@ -26,12 +26,48 @@
 .event_filler {
 	z-index: 9999;
 	width: 80%;
-	border-radius: 4px;
-	padding: 0px;
+	padding: 0px 0px 10px 0px;
+	opacity: 0.85;
 	position: absolute;
 	left: 10%;
 	p {
 		padding: 0;
+	}
+}
+
+.green_filler {
+	background-color: #DFF0D8;
+	border-left: 2px solid #a0d18a;
+	p:first-of-type {
+		background-color: #a0d18a;
+		padding-left: 10px;
+	}
+	p:nth-of-type(2) {
+		padding-left: 10px;
+	}
+}
+
+.red_filler {
+	background-color: #F2DEDE;
+	border-left: 2px solid #f4a6a6;
+	p:first-of-type {
+		background-color: #f4a6a6;
+		padding-left: 10px;
+	}
+	p:nth-of-type(2) {
+		padding-left: 10px;
+	}
+}
+
+.yellow_filler {
+	background-color: #fcf5a9;
+	border-left: 2px solid #eadd64;
+	p:first-of-type {
+		background-color: #eadd64;
+		padding-left: 10px;
+	}
+	p:nth-of-type(2) {
+		padding-left: 10px;
 	}
 }
 

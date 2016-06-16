@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
 	$('.clockpicker').clockpicker({
-		donetext: 'Done'
+		donetext: 'Done',
+		placement: 'top',
+    	align: 'left'
 	});
 
 	$.each($(".event_filler"), function() {
@@ -16,9 +18,6 @@ $(document).ready(function() {
 			return x
 		});
 		// set colour
-		$("#" + id).css("background-color", function() {
-			var x = $(this).data("colour");
-			return x
-		});
+		$("#" + id).addClass($(this).data("colour"));
 	});
 });
