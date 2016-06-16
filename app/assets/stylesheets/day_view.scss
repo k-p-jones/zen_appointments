@@ -35,6 +35,16 @@
 	}
 }
 
+.event_delete_tag {
+	float: right;
+	padding-right: 10px;
+	color: inherit;	
+	&:hover {
+		text-decoration: none;
+		color: #000;
+	}
+}
+
 .green_filler {
 	background-color: #DFF0D8;
 	border-left: 2px solid #a0d18a;

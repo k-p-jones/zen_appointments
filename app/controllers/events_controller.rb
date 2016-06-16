@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 		else
 			flash[:danger] = 'Error Destroying Event...'
 		end
-		redirect_to root_path
+		redirect_to :back
 	end
 
 	private 

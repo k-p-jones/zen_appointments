@@ -4,6 +4,9 @@ module DayViewHelper
 	end
 
 	class Planner < Struct.new(:view, :events)
+
+		include Rails.application.routes.url_helpers
+
 		delegate :content_tag, to: :view
 
 		def hours
@@ -24,7 +27,9 @@ module DayViewHelper
 				content_tag :td, class: "event_placeholder" do 
 					arr.map do |e|
 						content_tag :div, class: "event_filler", data: { id: "event_#{e.id}", duration: "#{e.duration_in_minutes}", startpos: "#{e.start_time.strftime('%M')}", colour: "#{e.colour}" }, id: "event_#{e.id}" do 
-							content_tag(:p, e.start_time.strftime("%H:%M") + " - " + e.end_time.strftime("%H:%M")) + content_tag(:p, e.description)
+							content_tag(:a, "X", href: event_path(e.id), class: "event_delete_tag",  data: { method: :delete, confirm: 'are you sure?' }) +
+							content_tag(:p, e.start_time.strftime("%H:%M") + " - " + e.end_time.strftime("%H:%M")) +
+							content_tag(:p, e.description)
 							
 						end
 					end.join.html_safe
