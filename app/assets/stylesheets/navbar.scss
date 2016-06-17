@@ -8,6 +8,24 @@
 		color: #fff;
 	}
 
+	a:hover {
+		color: #888;
+	}
+
+	.dropdown-menu {
+		background-color: #4ebaa6;
+		border: none;
+		&:hover {
+			background-color: #4ebaa6;
+		}
+		a {
+			&:hover {
+				background-color: #4ebaa6;	
+				color: #888;
+			}
+		}
+	}
+
 	.navbar-right li a {
 		color: #fff;
 	}
