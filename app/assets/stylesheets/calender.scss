@@ -29,6 +29,12 @@
 			color: #fff;
 		}
 	}
+	.today_cell {
+		background-color: #4DB9A5;
+		a {
+			color: #fff;
+		}
+	}
 	a {
 		font-size: 20px;
 		color: #888;
@@ -55,6 +61,22 @@
 		}
 		a {
 			font-size: 16px;
+		}
+	}
+}
+
+@media (max-width: 500px){
+	#my_calender {
+		th {
+			font-size: 10px;
+		}
+
+		td {
+			width: 14%;
+			padding: 10px 0px 10px 0px;
+			a {
+				font-size: 10px;
+			}
 		}
 	}
 }

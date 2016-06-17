@@ -26,7 +26,7 @@ module CalenderHelper
 		def header
 			content_tag :thead do 
 				content_tag :tr do 
-					days.map { |day| content_tag :th, day.strftime("%a"), class: "text-center danger" }.join.html_safe
+					days.map { |day| content_tag :th, day.strftime("%a").first, class: "text-center danger" }.join.html_safe
 				end
 			end	
 		end
@@ -45,13 +45,14 @@ module CalenderHelper
 
 		def class_check(day)
 			classes = ["text-center"]
+			classes << "today_cell" if day == Date.today
 			classes << "active_cell" if events[day]
 			classes << "active" if day.month != date.month
 			classes.empty? ? nil : classes.join(" ")
 		end
 
 		def display
-			content_tag :table, class: "table" do
+			content_tag :table, class: "table table-responsive" do
                 header + week_rows
             end
 		end
