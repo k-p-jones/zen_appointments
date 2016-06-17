@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 	validates :description, :start_time, :end_time, presence: true
 	validate :start_time_less_than_end_time
 	validate :event_doesnt_clash
+	validate :event_less_or_equal_to_15_minutes
 
 	belongs_to :user
 
@@ -9,7 +10,13 @@ class Event < ActiveRecord::Base
 		events = Event.all.select { |e| (e.id != id) && (e.date == date) && (e.user_id == user_id) }
 		overlaps = events.select { |e| (start_time.strftime("%H%M").to_i - e.end_time.strftime("%H%M").to_i) * (end_time.strftime("%H%M").to_i - e.start_time.strftime("%H%M").to_i) < 0 }
 		unless overlaps.blank?
-			errors.add(:event, "clashes with other events today!")
+			errors.add(:appointment, "clashes with other appointments today!")
+		end
+	end
+
+	def event_less_or_equal_to_15_minutes
+		if (end_time.strftime("%H%M").to_i) - (start_time.strftime("%H%M").to_i) < 15
+			errors.add(:appointment, "cannot be less than 15 minutes" )
 		end
 	end
 
