@@ -1,7 +1,5 @@
 todo!
 
-fix event css for events under 30 minutes
-
 style the login pages
 
 make a landing page
