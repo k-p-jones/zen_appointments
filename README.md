@@ -8,7 +8,7 @@ AJAX?!
 
 make an event show page, possibly modal based?
 
-link to edit appointments
+style the edit links withing even filler
 
 recurring events?
 
