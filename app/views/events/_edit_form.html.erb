@@ -1,0 +1,54 @@
+<div>
+  <h3>Edit Appointment</h3>
+  <hr>
+  <%= form_for(@event) do |f| %>
+    <% if session[:errors] %>
+        <p class="alert alert-error">Ooops! Please correct the following: 
+        <ul>
+          <% session[:errors].each do |msg| %>
+            <li class="error"><%= msg %></li>
+          <% end %>
+        </ul> 
+      </p>
+      <% session[:errors] = nil %>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :date%><br>
+      <%= f.text_field :date, class: "form-control", id: "date_field" %>
+    </div>
+    <!-- description -->
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <!-- Colour select -->
+    <div class="form-group">
+      <%= f.select(:colour, [['Green', 'green_filler'], ['Red', 'red_filler'], ['Yellow', 'yellow_filler']], {}, {:class => "form-control"}) %>
+    </div>
+    <!-- start time using clock picker -->
+    <div class="form-group">
+      <%= f.label :start_time %><br>
+      <div class="input-group clockpicker">
+        <%= f.text_field :start_time, :class => "form-control", :value =>"09:00" %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+      </div>
+    </div>
+    <!-- end time using clock picker -->
+    <div class="form-group">
+      <%= f.label :end_time %><br>
+      <div class="input-group clockpicker">
+        <%= f.text_field :end_time, :class => "form-control", :value =>"10:00" %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+      </div>
+    </div>
+    <hr>
+    <!-- submit -->
+    <div class="actions">
+      <%= f.submit "Submit changes", :class => "btn btn-success" %>
+    </div>
+  <% end %>
+</div>

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery.turbolinks
+//= require jquery-ui/datepicker
 //= require bootstrap
 //= require clockpicker
 //= require jquery_ujs
