@@ -11,14 +11,14 @@ $(document).ready(function() {
 		var duration = $(this).data("duration");
 		var colour = $(this).data("colour");
 		// set height
-		if (duration <= "36") {
+		if (duration <= 36) {
 			$("#" + id).addClass("small_" + colour);
 			$("#" + id).css("height", function() {
 				return $(this).data("duration");
 			});
 		} else {
 			$("#" + id).css("height", function() {
-				return $(this).data("duration");
+				return $(this).data("duration");	
 			});
 			// set colour
 			$("#" + id).addClass($(this).data("colour"));
