@@ -29,7 +29,7 @@
     <div class="form-group">
       <%= f.label :start_time %><br>
       <div class="input-group clockpicker">
-        <%= f.text_field :start_time, :class => "form-control", :value =>"09:00" %>
+        <%= f.text_field :start_time, :class => "form-control", :value =>"#{@event.start_time.strftime('%H:%M')}" %>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-time"></span>
         </span>
@@ -39,7 +39,7 @@
     <div class="form-group">
       <%= f.label :end_time %><br>
       <div class="input-group clockpicker">
-        <%= f.text_field :end_time, :class => "form-control", :value =>"10:00" %>
+        <%= f.text_field :end_time, :class => "form-control", :value =>"#{@event.end_time.strftime('%H:%M')}" %>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-time"></span>
         </span>
