@@ -5,7 +5,7 @@ $(document).ready(function() {
 		placement: 'top',
     	align: 'left'
 	});
-
+	//event filler 
 	$.each($(".event_filler"), function() {
 		var id = $(this).data("id");
 		var duration = $(this).data("duration");
@@ -29,5 +29,9 @@ $(document).ready(function() {
 			return x
 		});
 		
+	});
+	//sliding form for mobile screens
+	$('.toggle').on('click', function() {
+		$('#small_event_form').slideToggle();
 	});
 });

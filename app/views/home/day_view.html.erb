@@ -1,12 +1,27 @@
 <div class="row">
 	<div class="col-xs-12 text-right">
-		<div class="day_icon">
+		<div class="day_icons">
+		<%= link_to "#", class: "toggle" do %>
+			<%= image_tag('pencil.png') %>
+		<% end %>
 		<%= link_to root_path do  %>
 			<%= image_tag('calendar.png') %>
 		<% end %>
 		</div>
 	</div>
 </div>	
+
+<div class="row">
+	<div class="hidden-sm hidden-md hidden-lg hidden-xl col-xs-12">
+		<div id="small_event_form">
+			<div id="form_heading">
+	    		<h3>New Appointment</h3>
+	    		<hr>
+	  		</div>
+			<%= render 'event_form' %>
+		</div>
+	</div>
+</div>
 
 <div class="row">
 	<div class="col-sm-6">
@@ -27,7 +42,7 @@
 			</div>
 		</div>	
 	</div>
-	<div class="col-sm-6">
+	<div class="hidden-xs col-sm-6">
 		<div id="event_form">
 			<div id="form_heading">
 	    		<h3>New Appointment</h3>

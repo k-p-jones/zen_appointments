@@ -12,7 +12,14 @@
 	}
 }
 
-.day_icon img {
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.day_icons img {
 	height: 50px;
 	margin-bottom: 20px;
 }
