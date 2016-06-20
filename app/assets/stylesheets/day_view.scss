@@ -48,6 +48,11 @@
 	}
 	a {
 		font-size: 12px;
+		padding-left: 10px;
+		vertical-align: top;
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
@@ -63,6 +68,11 @@
 	}
 	a {
 		font-size: 12px;
+		padding-left: 10px;
+		vertical-align: top;
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
@@ -78,6 +88,11 @@
 	}
 	a {
 		font-size: 12px;
+		padding-left: 10px;
+		vertical-align: top;
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
@@ -98,8 +113,12 @@
 		background-color: #a0d18a;
 		padding-left: 10px;
 	}
-	p:nth-of-type(2) {
+	a {
 		padding-left: 10px;
+		vertical-align: top;
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
@@ -110,8 +129,12 @@
 		background-color: #f4a6a6;
 		padding-left: 10px;
 	}
-	p:nth-of-type(2) {
+	a {
 		padding-left: 10px;
+		vertical-align: top;
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
@@ -122,8 +145,12 @@
 		background-color: #eadd64;
 		padding-left: 10px;
 	}
-	p:nth-of-type(2) {
+	a {
 		padding-left: 10px;
+		vertical-align: top;
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
