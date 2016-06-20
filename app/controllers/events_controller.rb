@@ -26,10 +26,10 @@ class EventsController < ApplicationController
 		@event = Event.find_by_id(params[:id])
 		if @event.update_attributes(event_params)
 			flash[:success] = 'Event was updated!'
-			redirect_to root_path
+			redirect_to home_day_view_path(@event, :date => @event.date)
 		else
 			flash[:danger] = "There was a problem"
-			redirect_to root_path
+			redirect_to :back
 		end
 	end
 
