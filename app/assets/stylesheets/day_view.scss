@@ -190,3 +190,11 @@
 			}
 		}
 }
+
+@media(max-width: 400px) {
+	.planner_controls {
+		h3 {
+			font-size: 13px;
+		}
+	}
+}
