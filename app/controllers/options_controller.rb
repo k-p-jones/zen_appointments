@@ -10,6 +10,7 @@ class OptionsController< ApplicationController
 			redirect_to root_path
 		else
 			flash[:danger] = "There was a problem"
+			session[:errors] = @option.errors.full_messages
 			redirect_to :back
 		end
 	end
