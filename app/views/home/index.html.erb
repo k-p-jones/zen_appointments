@@ -1,4 +1,9 @@
 <div class="row">
+	<div class="col-xs-12 text-right day_icons">
+		<%= link_to edit_option_path(current_user.option.id) do %>
+			<%= image_tag('settings.png') %>
+		<% end %>
+	</div>
 	<div class="col-xs-12">
 		<div id="my_calender">
 			<div class="calender_controls text-center">

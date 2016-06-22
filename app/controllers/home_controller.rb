@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 		@date = Date.parse(params[:date])
     	@the_date = @date.to_datetime
   		@events = current_user.events
+  		@options = current_user.option
   		@todays_events = @events.where("date = ?", @date)
 	end
 end

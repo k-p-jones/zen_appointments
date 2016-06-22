@@ -1,16 +1,16 @@
 module DayViewHelper
-	def day_planner(events)
-		Planner.new(self, events).display
+	def day_planner(events, options)
+		Planner.new(self, events, options).display
 	end
 
-	class Planner < Struct.new(:view, :events)
+	class Planner < Struct.new(:view, :events, :options)
 
 		include Rails.application.routes.url_helpers
 
 		delegate :content_tag, to: :view
 
 		def hours
-			hours = ("00".."23").to_a
+			hours = (options.calender_start_time..options.calender_end_time).to_a
 		end
 
 		def row_header(hour)
