@@ -1,1 +1,18 @@
-<h3><%= @options.calender_start_time %></h3>
+<div class="row">
+	<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-right">
+		<div class="day_icons">
+		<%= link_to root_path do  %>
+			<%= image_tag('calendar.png') %>
+		<% end %>
+		</div>
+	</div>
+</div>	
+<div class="row">
+	<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+		<div id="settings_form">
+			<h3>Calender Settings</h3>
+			<hr>
+			<%= render 'option_form' %>
+		</div>
+	</div>
+</div>s
