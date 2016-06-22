@@ -3,6 +3,15 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :first_name, :last_name, presence: true
-  has_many :events, dependent: :destroy
+  has_one :option
+  has_many :events
+
+  after_save :create_options
+
+  private
+
+  def create_options
+  	@option = self.build_option
+  	@option.save
+  end
 end

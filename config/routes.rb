@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "home/index"
   get "home/day_view"
   resources :events
+  resources :options
 end

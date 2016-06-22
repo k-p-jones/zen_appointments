@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calender_start_time: MyString
+  calender_end_time: MyString
+  user_id: 
+
+two:
+  calender_start_time: MyString
+  calender_end_time: MyString
+  user_id: 
