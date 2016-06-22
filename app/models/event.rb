@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 	validate :start_time_less_than_end_time
 	validate :event_doesnt_clash
 	validate :event_less_or_equal_to_15_minutes
+	validate :event_is_within_calender_hours
 
 	belongs_to :user
 
@@ -23,6 +24,16 @@ class Event < ActiveRecord::Base
 	def start_time_less_than_end_time
 		if start_time > end_time
 			errors.add(:start_time, "cannot be after end time")
+		end
+	end
+
+	def event_is_within_calender_hours
+		options = self.user.option
+		if start_time.strftime("%H") < options.calender_start_time
+			errors.add(:appointment, "cannot start before your calenders start time")
+		end
+		if end_time.strftime("%H") > options.calender_end_time
+			errors.add(:appointment, "cannot end after your calenders end time")
 		end
 	end
 

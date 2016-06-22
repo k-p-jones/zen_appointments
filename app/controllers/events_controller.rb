@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 		@event.user_id = current_user.id
 		if @event.save
 			flash[:success] = "Event created"
+			session[:errors] = nil
 		else
 			flash[:danger] = "Uh Oh, try again!"
 			session[:errors] = @event.errors.full_messages
