@@ -6,8 +6,10 @@ class Option < ActiveRecord::Base
   private
 
   def init
-  	self.calender_start_time ||= "00"
-  	self.calender_end_time ||= "23"
+  	if self.new_record?
+	  	self.calender_start_time ||= "00"
+	  	self.calender_end_time ||= "23"
+  	end
   end
 
   def end_time_not_less_than_start_time

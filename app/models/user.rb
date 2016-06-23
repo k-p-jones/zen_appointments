@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :option
-  has_many :events
+  has_one :option, dependent: :destroy
+  has_many :events, dependent: :destroy
 
-  after_save :create_options
+  after_create :create_options
 
   private
 
