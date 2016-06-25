@@ -6,10 +6,6 @@ make a landing page
 
 AJAX?!
 
-make an event show page, possibly modal based?
-
-style the date picker on edit form
-
 recurring events?
 
 add notes etc to events.

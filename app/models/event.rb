@@ -42,7 +42,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def duration_in_minutes
-		(self.end_time - self.start_time) / 60
+		((self.end_time - self.start_time) / 60) * 1.35
 	end
 
 	def format_start_time
