@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 show_wrapper">
+			<div class="text-center">
+				<h3>Appointment</h3>
+				<hr>
+			</div>
+			<h4>Time</h4>
+			<p><%= @event.start_time.strftime("%H:%M") + " - " + @event.end_time.strftime("%H:%M") %></p>
+			<hr>
+			<h4>Description</h4>
+			<p><%= @event.description %></p>
+			<hr>
+			<h4>Category</h4>
+			<p>Category will go here</p>
+			<hr>
+			<h4>Location</h4>
+			<p>Location will go here</p>
+			<hr>
+			<h4>Notes</h4>
+			<p>Notes will go here</p>
+			<hr>
+			<div class="text-right">
+				<%= link_to "Back", :back, class: "btn btn-success" %>
+				<%= link_to "Edit", edit_event_path(@event), class: "btn btn-success" %>
+			</div>
+		</div>
+	</div>
+</div>
