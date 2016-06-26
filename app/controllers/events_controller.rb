@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find_by_id(params[:id])
+		session[:errors] = nil #wipe errors so old session errors dont appear in the edit form
 	end
 
 	def create
@@ -40,6 +41,7 @@ class EventsController < ApplicationController
 			redirect_to home_day_view_path(@event, :date => @event.date)
 		else
 			flash[:danger] = "There was a problem"
+			session[:errors] = @event.errors.full_messages
 			redirect_to :back
 		end
 	end
