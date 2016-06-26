@@ -46,9 +46,8 @@ class EventsController < ApplicationController
 		@event = Event.find_by_id(params[:id])
 		if @event.update_attributes(event_params)
 			flash[:success] = 'Event was updated!'
-			#reset all session variables
+			#reset all session variableS
 			session[:errors] = nil
-			session[:date] = nil
 			session[:description] = nil
 			session[:notes] = nil
 			session[:location] = nil
@@ -59,13 +58,6 @@ class EventsController < ApplicationController
 		else
 			flash[:danger] = "There was a problem"
 			session[:errors] = @event.errors.full_messages
-			session[:date] = @event.date
-			session[:description] = @event.description
-			session[:notes] = @event.notes
-			session[:location] = @event.location
-			session[:colour] = @event.colour
-			session[:start_time] = @event.start_time.strftime("%H:%M")
-			session[:end_time] = @event.end_time.strftime("%H:%M")
 			redirect_to :back
 		end
 	end
