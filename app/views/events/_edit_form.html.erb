@@ -13,33 +13,58 @@
       <% session[:errors] = nil %>
     <% end %>
     <div class="form-group">
-      <%= f.label :date%><br>
-      <%= f.text_field :date, class: "form-control", id: "date_field" %>
+      <%= f.label :date %><br>
+      <% if session[:errors] %>
+        <%= f.text_field :date, class: "form-control", id: "date_field", :value => session[:date] %>
+      <% else %>
+        <%= f.text_field :date, class: "form-control", id: "date_field" %>
+      <% end %>
     </div>
     <!-- description -->
     <div class="form-group">
       <%= f.label :description %><br>
-      <%= f.text_area :description, class: "form-control" %>
+      <% if session[:errors] %>
+        <%= f.text_area :description, class: "form-control", :value => session[:description] %>
+      <% else %>
+        <%= f.text_area :description, class: "form-control" %>
+      <% end %>
     </div>
     <!-- Colour select -->
     <div class="form-group">
-      <%= f.select(:colour, [['Green', 'green_filler'], ['Red', 'red_filler'], ['Yellow', 'yellow_filler']], {}, {:class => "form-control"}) %>
+      <!-- will need changing when categories introduced -->
+      <% if session[:errors] %>
+        <%= f.select(:colour, [['Green', 'green_filler'], ['Red', 'red_filler'], ['Yellow', 'yellow_filler']], {}, {:class => "form-control"}) %>
+      <% else %>
+        <%= f.select(:colour, [['Green', 'green_filler'], ['Red', 'red_filler'], ['Yellow', 'yellow_filler']], {}, {:class => "form-control"}) %>
+      <% end %>
     </div>
-    <!-- Location -->
+     <!-- Location -->
     <div class="form-group">
       <%= f.label :location %>
-      <%= f.text_field :location, class: "form-control" %>
+      <% if session[:errors] %>
+        <%= f.text_field :location, class: "form-control", :value => session[:location] %>
+      <% else %>
+        <%= f.text_field :location, class: "form-control" %>
+      <% end %>
     </div>
     <!-- notes -->
     <div class="form-group">
       <%= f.label :notes %>
-      <%= f.text_area :notes, class: "form-control", :rows => 3 %>
+      <% if session[:errors] %>
+        <%= f.text_area :notes, class: "form-control", :rows => 3, :value => session[:notes] %>
+      <% else %>
+        <%= f.text_area :notes, class: "form-control", :rows => 3 %>
+      <% end %>
     </div>
     <!-- start time using clock picker -->
     <div class="form-group">
       <%= f.label :start_time %><br>
       <div class="input-group clockpicker">
-        <%= f.text_field :start_time, :class => "form-control", :value =>"#{@event.start_time.strftime('%H:%M')}" %>
+        <% if session[:errors] %>
+          <%= f.text_field :start_time, :class => "form-control", :value => session[:start_time] %>
+        <% else %>
+          <%= f.text_field :start_time, :class => "form-control", :value =>"09:00" %>
+        <% end %>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-time"></span>
         </span>
@@ -49,13 +74,16 @@
     <div class="form-group">
       <%= f.label :end_time %><br>
       <div class="input-group clockpicker">
-        <%= f.text_field :end_time, :class => "form-control", :value =>"#{@event.end_time.strftime('%H:%M')}" %>
+        <% if session[:errors] %>
+          <%= f.text_field :end_time, :class => "form-control", :value => session[:end_time] %>
+        <% else %>
+          <%= f.text_field :end_time, :class => "form-control", :value =>"10:00" %>
+        <% end %>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-time"></span>
         </span>
       </div>
     </div>
-    <hr>
     <!-- submit -->
     <div class="actions">
       <%= f.submit "Submit changes", :class => "btn btn-success" %>

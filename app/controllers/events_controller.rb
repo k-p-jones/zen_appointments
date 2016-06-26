@@ -16,9 +16,17 @@ class EventsController < ApplicationController
 		@event.user_id = current_user.id
 		if @event.save
 			flash[:success] = "Event created"
+			#reset all session variables
 			session[:errors] = nil
+			session[:description] = nil
+			session[:notes] = nil
+			session[:location] = nil
+			session[:colour] = nil
+			session[:start_time] = nil
+			session[:end_time] = nil
 		else
 			flash[:danger] = "Uh Oh, try again!"
+			#set all session variables
 			session[:errors] = @event.errors.full_messages
 			session[:description] = @event.description
 			session[:notes] = @event.notes
@@ -38,10 +46,26 @@ class EventsController < ApplicationController
 		@event = Event.find_by_id(params[:id])
 		if @event.update_attributes(event_params)
 			flash[:success] = 'Event was updated!'
+			#reset all session variables
+			session[:errors] = nil
+			session[:date] = nil
+			session[:description] = nil
+			session[:notes] = nil
+			session[:location] = nil
+			session[:colour] = nil
+			session[:start_time] = nil
+			session[:end_time] = nil
 			redirect_to home_day_view_path(@event, :date => @event.date)
 		else
 			flash[:danger] = "There was a problem"
 			session[:errors] = @event.errors.full_messages
+			session[:date] = @event.date
+			session[:description] = @event.description
+			session[:notes] = @event.notes
+			session[:location] = @event.location
+			session[:colour] = @event.colour
+			session[:start_time] = @event.start_time.strftime("%H:%M")
+			session[:end_time] = @event.end_time.strftime("%H:%M")
 			redirect_to :back
 		end
 	end
