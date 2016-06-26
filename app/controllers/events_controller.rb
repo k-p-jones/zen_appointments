@@ -19,6 +19,12 @@ class EventsController < ApplicationController
 		else
 			flash[:danger] = "Uh Oh, try again!"
 			session[:errors] = @event.errors.full_messages
+			session[:description] = @event.description
+			session[:notes] = @event.notes
+			session[:location] = @event.location
+			session[:colour] = @event.colour
+			session[:start_time] = @event.start_time.strftime("%H:%M")
+			session[:end_time] = @event.end_time.strftime("%H:%M")
 		end
 		redirect_to :back
 	end
