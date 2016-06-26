@@ -14,12 +14,16 @@
 			<h4>Category</h4>
 			<p>Category will go here</p>
 			<hr>
-			<h4>Location</h4>
-			<p>Location will go here</p>
-			<hr>
-			<h4>Notes</h4>
-			<p>Notes will go here</p>
-			<hr>
+			<% unless @event.location.empty? %>
+				<h4>Location</h4>
+				<p><%= @event.location %></p>
+				<hr>
+			<% end %>
+			<% unless @event.notes.empty? %>
+				<h4>Notes</h4>
+				<p><%= @event.notes %></p>
+				<hr>
+			<% end %>
 			<div class="text-right">
 				<%= link_to "Back", :back, class: "btn btn-success" %>
 				<%= link_to "Edit", edit_event_path(@event), class: "btn btn-success" %>

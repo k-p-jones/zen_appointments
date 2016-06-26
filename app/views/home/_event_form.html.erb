@@ -20,6 +20,16 @@
     <div class="form-group">
       <%= f.select(:colour, [['Green', 'green_filler'], ['Red', 'red_filler'], ['Yellow', 'yellow_filler']], {}, {:class => "form-control"}) %>
     </div>
+     <!-- Location -->
+    <div class="form-group">
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "form-control" %>
+    </div>
+    <!-- notes -->
+    <div class="form-group">
+      <%= f.label :notes %>
+      <%= f.text_area :notes, class: "form-control", :rows => 3 %>
+    </div>
     <!-- start time using clock picker -->
     <div class="form-group">
       <%= f.label :start_time %><br>
