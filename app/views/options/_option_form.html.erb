@@ -1,13 +1,13 @@
 <%= form_for(@option) do |f| %>
-    <% if session[:errors] %>
+    <% if session[:option_errors] %>
         <p class="alert alert-error">Ooops! Please correct the following: 
         <ul>
-          <% session[:errors].each do |msg| %>
+          <% session[:option_errors].each do |msg| %>
             <li class="error"><%= msg %></li>
           <% end %>
         </ul> 
       </p>
-      <% session[:errors] = nil %>
+      <% session[:option_errors] = nil %>
     <% end %>
     
     <!-- start_time -->
