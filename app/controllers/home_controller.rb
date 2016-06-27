@@ -6,6 +6,7 @@ class HomeController < ApplicationController
 		@start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today
 	  	@events = current_user.events
   		@events_by_date = @events.group_by(&:date)
+  		@todays_events = current_user.events.where("date = ?", Date.today)
 	end
 
 	def day_view
