@@ -29,28 +29,38 @@
 				<h4><%= format_date(Date.today) %></h4>
 			</div>
 			<hr>
-			<p id="txt" class="text-center"></p>
-			<hr>
-			<p>Number of appointments today: <%= @todays_events.count %></p>
-
-			<script>
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('txt').innerHTML =
-    h + ":" + m;
-    var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
-startTime();
-</script>
+			<div class="text-center">
+				<p id="txt"></p>
+				<hr>
+				<p>You have <%= pluralize(@todays_events.count, 'appointment') %> today.</p>
+			</div>
 		</div>
 	</div>
 </div>
+<!-- Clock js -->
+<script>
+	$(document).ready(function() {
+    function startTime() {
+	    var today = new Date();
+	    var h = today.getHours();
+	    var m = today.getMinutes();
+	    var s = today.getSeconds();
+	    m = checkTime(m);
+	    s = checkTime(s);
+	    $('#txt').html(h + ":" + m);
+	    if ( h < 12 ) {
+	    	$('#txt').append(" AM");
+	    } else {			
+	    	$('#txt').append(" PM");
+	    }
+	    var t = setTimeout(startTime, 500);
+    }
+
+    function checkTime(i) {
+    	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    	return i;
+    }
+    
+    startTime();
+	});
+</script>
