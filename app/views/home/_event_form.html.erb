@@ -22,7 +22,6 @@
     </div>
     <!-- Colour select -->
     <div class="form-group">
-      <!-- will need changing when categories introduced -->
       <% if session[:errors] %>
         <%= f.select(:colour, [['Green', 'green_filler'], ['Red', 'red_filler'], ['Yellow', 'yellow_filler']], {}, {:class => "form-control"}) %>
       <% else %>
