@@ -69,7 +69,7 @@ class EventsController < ApplicationController
 		else
 			flash[:danger] = 'Error Destroying Event...'
 		end
-		redirect_to :back
+		redirect_to home_day_view_path(@event.date, :date => @event.date)
 	end
 
 	private 
