@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+	include DayViewHelper
 	before_action :authenticate_user!
 
 	def index
@@ -16,5 +16,7 @@ class HomeController < ApplicationController
   		@events = current_user.events
   		@options = current_user.option
   		@todays_events = @events.where("date = ?", @date)
+  		@events_outside_hours = check_events_against_calender_hours(@todays_events, current_user.option) 
+  		
 	end
 end

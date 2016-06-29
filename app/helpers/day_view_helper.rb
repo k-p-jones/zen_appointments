@@ -26,10 +26,14 @@ module DayViewHelper
 			else
 				content_tag :td, class: "event_placeholder" do 
 					arr.map do |e|
-						content_tag :div, class: "event_filler", data: { id: "event_#{e.id}", duration: "#{e.duration_in_minutes}", startpos: "#{e.start_time.strftime('%M')}", colour: "#{e.colour}" }, id: "event_#{e.id}" do 
-							content_tag(:a, "X", href: event_path(e.id), class: "event_delete_tag",  data: { method: :delete, confirm: 'are you sure?' }) +
-							content_tag(:p, e.start_time.strftime("%H:%M") + " - " + e.end_time.strftime("%H:%M")) +
-							content_tag(:a, e.description, href: event_path(e))	
+						#will not display an event if it ends outside the calender finish time, existing code prevents the need for fallbacks for
+						#events starting before calender start time
+						unless e.end_time.strftime("%H") > options.calender_end_time
+							content_tag :div, class: "event_filler", data: { id: "event_#{e.id}", duration: "#{e.duration_in_minutes}", startpos: "#{e.start_time.strftime('%M')}", colour: "#{e.colour}" }, id: "event_#{e.id}" do 
+								content_tag(:a, "X", href: event_path(e.id), class: "event_delete_tag",  data: { method: :delete, confirm: 'are you sure?' }) +
+								content_tag(:p, e.start_time.strftime("%H:%M") + " - " + e.end_time.strftime("%H:%M")) +
+								content_tag(:a, e.description, href: event_path(e))	
+							end
 						end
 					end.join.html_safe
 				end
@@ -45,5 +49,19 @@ module DayViewHelper
 				end.join.html_safe
 			end
 		end
+	end
+
+	def check_events_against_calender_hours(events, user_settings)
+		todays_events = events
+		start_time = user_settings.calender_start_time
+		end_time = user_settings.calender_end_time
+		events_outside_calender_hours = []
+
+		for event in todays_events do
+			if (event.start_time.strftime("%H") < start_time) || (event.end_time.strftime("%H") > end_time)
+				events_outside_calender_hours << event
+			end
+		end
+		return events_outside_calender_hours	
 	end
 end

@@ -1,3 +1,21 @@
+<!-- error display for events falling outside of calender hours -->
+<% unless @events_outside_hours.empty? %>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="alert alert-danger">
+				<h4>Warning</h4>
+				<p>The following events either start or end outside of your calender display hours and will not be displayed. Please either edit the event time or adjust your calender hours accordingly.</p>
+				<ul>
+					<% @events_outside_hours.each do |e| %>
+						<li><%= link_to e.description, event_path(e)%></li>
+					<% end %>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+<% end %>
+
 <div class="row">
 	<div class="col-xs-12 text-right">
 		<div class="day_icons">
